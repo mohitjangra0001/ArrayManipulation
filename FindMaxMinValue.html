@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         // find max and min value
+
+        let arr1 = [10, 2, 3, 7, 5, 6, 70, 40];
+
+        const velue_finder = () => {
+            for (let i = 0; i <= arr1.length; i++) {
+                for (let j = 0; j <= arr1.length; j++) {
+                    s = i + 1;
+                    if (arr1[s] > arr1[j]) {
+                        let v = arr1[j];
+                        arr1[j] = arr1[s];
+                        arr1[s] = v;
+                    }
+                }
+            }
+            console.log(arr1.reverse())
+            arr1.reverse()
+
+            console.log("min value is=> " + arr1.pop())
+            console.log("Max value is=> " + arr1.shift())
+        }
+
+        velue_finder()
+    </script>
+</body>
+</html>
