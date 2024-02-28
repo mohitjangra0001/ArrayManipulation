@@ -10,29 +10,23 @@
         //  sort string in ascending order
         let arr2 = ['j', 'z', 'd', 'q', 'l', 'w', 'a', 'h', 'y', 'k', 'g', 'n', 'v', 'r', 'p', 'x', 'c', 'm', 'f', 'o', 'u', 's', 'i', 'e', 't', 'b'];
 
-function short(arr) {
-    let n = arr.length;
-    let swapped;
-
-    do {
-        swapped = false;
-        for (let i = 0; i < n - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                let temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                swapped = true;
+ const velue_finder = () => {
+            for (let i = 0; i <= arr2.length; i++) {
+                for (let j = 0; j <= arr2.length; j++) {
+                    s = i + 1;
+                    if (arr2[s] > arr2[j]) {
+                        let v = arr2[j];
+                        arr2[j] = arr2[s];
+                        arr2[s] = v;
+                    }
+                }
             }
+            arr2.reverse();
+            
+            console.log(arr2)
+            
         }
-    } while (swapped);
-
-    return arr;
-}
-
-arr2 = short(arr2);
-
-console.log("new array is:", arr2);
-
+        velue_finder()
 
     </script>
 </body>
