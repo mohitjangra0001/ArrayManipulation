@@ -10,15 +10,26 @@
     <script>
             //array manipulation
 
-                var array=[1,2,3,[4,5,6,[7,8,[9,10]]]];
+                let array=[1,2,3,[4,5,6,[7,8,[9,10]]]];
 
-                 var arr=[];
-                  console.log(array);
-                for(let i=0;i<array.length;i++){
-               let a=array[i];
-               arr.push(a);
+            function simpleArray(arr){
+                let arr1=[];
+                for(let i=0;i<arr.length;i++){
+                    if(Array.isArray(arr[i])){
+
+                        let innerarray=simpleArray(arr[i]);
+                        for(let j=0;j<innerarray.length;j++){
+                            arr1.push(innerarray[j]);
+                        }
+                    }else{
+                        arr1.push(arr[i]);
+                    }
+                }
+                return arr1;
             }
-            console.log("array manupulation is => "+arr);
+
+            let flatArray=simpleArray(array);
+            console.log(flatArray);
 
 
     </script>
