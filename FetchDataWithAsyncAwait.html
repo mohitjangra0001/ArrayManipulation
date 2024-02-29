@@ -10,35 +10,22 @@
 <body>
     <script>
         // fetch api
-        let a = 0;
-        let limit = 10;
+        const getData=async ()=>{
+            const URL = "https://jsonplaceholder.typicode.com/posts";
 
-        function asyncF() {
-            return new Promise((resolve, reject) => {
-                resolve(fetch("https://jsonplaceholder.typicode.com/posts"));
-                reject("error");
-            })
+            try{
+                let res=await fetch(URL);
+                let data=await res.json();
+                let arrSize=data.slice(0,5);
+                let title=arrSize.map(ele=>ele.title)
+                console.log(title)
+
+            }catch(error){
+console.log(error)
+            }
         }
 
-        (async function () {
-            await asyncF().then((res)=>res.json()).then(data => {
-                data.map((val, index) => {
-                    a += 1;
-                    if (a < limit) {
-                        console.log("userId is => " + val.userId);
-                        console.log("Id is => " + val.id);
-                        console.log("title is => " + val.title);
-                        console.log("body is => " + val.body);
-
-                    } else {
-
-                    }
-                }
-                )
-            }
-
-            ).catch(error => console.log(error));
-        })();
+        getData();
 
     </script>
 </body>
